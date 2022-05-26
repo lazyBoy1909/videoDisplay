@@ -9,12 +9,11 @@ import UIKit
 
 class AdjustView: UIView {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    @IBOutlet private weak var exitButton: UIButton!
+    @IBOutlet private weak var okButton: UIButton!
+    override func layoutSubviews() {
+        exitButton.layer.cornerRadius = exitButton.bounds.height/2
+        okButton.layer.cornerRadius = okButton.bounds.height/2
     }
-    */
 
 }
