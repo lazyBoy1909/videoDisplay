@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var videoImageView: UIView!
     private weak var footerTabBar: FooterTabBar!
+    private weak var adjustView: AdjustView!
     private var video: PHAsset!
     private var player: AVPlayer!
     func addGradientForScreen()
@@ -107,6 +108,24 @@ class ViewController: UIViewController {
         }
     }
     
+    
+    func adjustViewAppear()
+    {
+        footerTabBar.animHide()
+        if let adjustView = Bundle.main.loadNibNamed("AdjustView", owner: self, options: nil)?.first as? AdjustView
+        {
+            self.adjustView = adjustView
+            self.view.addSubview(adjustView)
+            //adjustView.backgroundColor = .clear
+            adjustView.delegate = self
+            adjustView.translatesAutoresizingMaskIntoConstraints = false
+            adjustView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200).isActive = true
+            footerTabBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            footerTabBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+            footerTabBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+            adjustView.animShow()
+        }
+    }
     func initBasicGUI()
     {
         saveButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.29)
@@ -143,7 +162,27 @@ class ViewController: UIViewController {
 extension ViewController: FooterTabBarDelegate
 {
     func footerTabBarDidSelectItem(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showAlert()
+        switch indexPath.row
+        {
+        case 11: adjustViewAppear()
+        default: showAlert()
+        }
     }
+}
+
+// MARK: AdjustViewDelegate
+extension ViewController: AdjustViewDelegate
+{
+    func adjustViewOkButtonDidTap(_ sender: UIButton) {
+        adjustView.animHide()
+        footerTabBar.animShow()
+    }
+    
+    func adjustViewExitButtonDidTap(_ sender: UIButton) {
+        adjustView.animHide()
+        footerTabBar.animShow()
+    }
+    
+    
 }
 
