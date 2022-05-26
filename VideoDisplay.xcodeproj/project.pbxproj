@@ -455,7 +455,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C862521D283E27CE00631E71 /* PHAssetExtension.swift in Sources */,
-				C88498C9283F7A990080016C /* AdjustView.swift in Sources */,
 				C8D58A14283B2F0600B0AE6C /* FooterTabBar.swift in Sources */,
 				C8D58993283B234300B0AE6C /* ViewController.swift in Sources */,
 				C8D58A17283B428B00B0AE6C /* TabBarCollectionViewCell.swift in Sources */,
