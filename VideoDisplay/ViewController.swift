@@ -19,18 +19,18 @@ class ViewController: UIViewController {
     private var player: AVPlayer!
     func addGradientForScreen()
     {
-        let bottomGradient = CAGradientLayer()
-        bottomGradient.frame = videoImageView.frame
-        bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        bottomGradient.locations = [0.75, 1.0]
+        let bottomGradientLayer = CAGradientLayer()
+        bottomGradientLayer.frame = videoImageView.frame
+        bottomGradientLayer.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        bottomGradientLayer.locations = [0.75, 1.0]
         
-        let topGradient = CAGradientLayer()
-        topGradient.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 88)
-        topGradient.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
-        topGradient.locations = [0, 1]
+        let topGradientLayer = CAGradientLayer()
+        topGradientLayer.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 88)
+        topGradientLayer.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+        topGradientLayer.locations = [0, 1]
 
-        videoImageView.layer.insertSublayer(bottomGradient, at: 0)
-        videoImageView.layer.insertSublayer(topGradient, at: 0)
+        videoImageView.layer.insertSublayer(bottomGradientLayer, at: 0)
+        videoImageView.layer.insertSublayer(topGradientLayer, at: 0)
     }
 
 
@@ -55,19 +55,7 @@ class ViewController: UIViewController {
                         let playerLayer = AVPlayerLayer(player: self.player)
                         playerLayer.frame = self.videoImageView.bounds //bounds of the view in which AVPlayer should be displayed
                         
-                        let videoHeight = randomVideo.pixelHeight
-                        let videoWidth = randomVideo.pixelWidth
-                        let screenHeight = (Int)(self.view.bounds.height)
-                        let screenWidth = (Int)(self.view.bounds.width)
-                        if videoHeight > screenHeight && videoWidth > screenWidth
-                        {
-                            playerLayer.videoGravity = .resizeAspectFill
-                        }
-                        else
-                        {
-                            playerLayer.videoGravity = .resizeAspect
-                        }
-                            
+                        playerLayer.videoGravity = .resizeAspect
                         
                         //Add playerLayer to view's layer
                         self.videoImageView.layer.insertSublayer(playerLayer, at: 0)
