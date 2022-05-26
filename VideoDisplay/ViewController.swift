@@ -16,7 +16,6 @@ class ViewController: UIViewController {
     @IBOutlet private weak var videoImageView: UIView!
     private weak var footerTabBar: FooterTabBar!
     private var video: PHAsset!
-    private var screenMode: ScreenMode = .fullScreen
     private var player: AVPlayer!
     func addGradientForScreen()
     {
@@ -33,69 +32,57 @@ class ViewController: UIViewController {
         videoImageView.layer.insertSublayer(gradient1, at: 0)
         videoImageView.layer.insertSublayer(gradient2, at: 0)
     }
-    // MARK: full screen mode
-    func onModeFullScreen()
-    {
-        self.screenMode = .fullScreen
-        headerView.backgroundColor = .clear
-        addGradientForScreen()
-    }
-    
-    // MARK: fit screen mode
-    func onModeFitScreen()
-    {
-        self.screenMode = .fitScreen
-        headerView.backgroundColor = .black
-    }
+
+
     // MARK: get video from Bundle.main
     func getRandomVideoFromLibrary()
     {
         if let randomVideo = PHAsset.loadRandomPHAssetVideosFromGallery()
         {
             video = randomVideo
-            let videoHeight = video.pixelHeight
-            let videoWidth = video.pixelWidth
-            let screenHeight = (Int)(self.view.bounds.height)
-            let screenWidth = (Int)(self.view.bounds.width)
-            if videoHeight > screenHeight && videoWidth > screenWidth
+            randomVideo.getAVAsset()
             {
-                onModeFullScreen()
-            }
-            else
-            {
-                onModeFitScreen()
-            }
-            randomVideo.getURL()
-            {
-                (responseURL) in
+                (assetResult) in
                 DispatchQueue.main.async
                 {
                     //Create AVPlayer object
-                    let asset = AVAsset(url: responseURL!)
-                    let playerItem = AVPlayerItem(asset: asset)
-                    self.player = AVPlayer(playerItem: playerItem)
-                    
-                    //Create AVPlayerLayer object
-                    let playerLayer = AVPlayerLayer(player: self.player)
-                    playerLayer.frame = self.videoImageView.bounds //bounds of the view in which AVPlayer should be displayed
-                    if(self.screenMode == .fullScreen)
+                    if let asset = assetResult
                     {
-                        playerLayer.videoGravity = .resizeAspectFill
+                        let playerItem = AVPlayerItem(asset: asset)
+                        self.player = AVPlayer(playerItem: playerItem)
+                        
+                        //Create AVPlayerLayer object
+                        let playerLayer = AVPlayerLayer(player: self.player)
+                        playerLayer.frame = self.videoImageView.bounds //bounds of the view in which AVPlayer should be displayed
+                        
+                        let videoHeight = randomVideo.pixelHeight
+                        let videoWidth = randomVideo.pixelWidth
+                        let screenHeight = (Int)(self.view.bounds.height)
+                        let screenWidth = (Int)(self.view.bounds.width)
+                        if videoHeight > screenHeight && videoWidth > screenWidth
+                        {
+                            playerLayer.videoGravity = .resizeAspectFill
+                        }
+                        else
+                        {
+                            playerLayer.videoGravity = .resizeAspect
+                        }
+                            
+                        
+                        //Add playerLayer to view's layer
+                        self.videoImageView.layer.insertSublayer(playerLayer, at: 0)
+                        
+                        //Play Video
+                        self.player.play()
+                        NotificationCenter.default.addObserver(self,
+                                         selector: #selector(self.playerEndedPlaying(_:)),
+                            name: .AVPlayerItemDidPlayToEndTime,
+                            object: nil)
                     }
                     else
                     {
-                        playerLayer.videoGravity = .resizeAspect
+                        print("Failed to get AVAsset from PHAsset")
                     }
-                    
-                    //Add playerLayer to view's layer
-                    self.videoImageView.layer.insertSublayer(playerLayer, at: 0)
-                    
-                    //Play Video
-                    self.player.play()
-                    NotificationCenter.default.addObserver(self,
-                                     selector: #selector(self.playerEndedPlaying(_:)),
-                        name: .AVPlayerItemDidPlayToEndTime,
-                        object: nil)
                 }
             }
         }
@@ -106,9 +93,9 @@ class ViewController: UIViewController {
     }
     // MARK: replay video
     @objc func playerEndedPlaying(_ notification: Notification) {
-       DispatchQueue.main.async {[weak self] in
-           self!.player.seek(to: CMTime.zero)
-           self!.player.play()
+        DispatchQueue.main.async { 
+            self.player.seek(to: CMTime.zero)
+            self.player.play()
        }
     }
     // MARK: create footer tab bar
@@ -137,6 +124,7 @@ class ViewController: UIViewController {
         saveButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.29)
         saveButton.layer.cornerRadius = 4
         createFooterView()
+        addGradientForScreen()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,7 +154,7 @@ class ViewController: UIViewController {
 // MARK: FooterTabBarDelegate
 extension ViewController: FooterTabBarDelegate
 {
-    func showNotificationForItemTapped(_ footerView: FooterTabBar) {
+    func footerTabBarWillShowNotification(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         showAlert()
     }
 }

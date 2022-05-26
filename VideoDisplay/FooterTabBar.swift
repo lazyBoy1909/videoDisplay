@@ -9,7 +9,7 @@ import UIKit
 
 protocol FooterTabBarDelegate: AnyObject
 {
-    func showNotificationForItemTapped(_ footerView: FooterTabBar)
+    func footerTabBarWillShowNotification(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 }
 
 class FooterTabBar: UIView {
@@ -47,6 +47,6 @@ extension FooterTabBar: UICollectionViewDelegate, UICollectionViewDataSource, UI
         return CGSize(width: 61, height: self.bounds.height)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.showNotificationForItemTapped(self)
+        delegate?.footerTabBarWillShowNotification(self.tabBarCollectionView, didSelectItemAt: indexPath)
     }
 }
