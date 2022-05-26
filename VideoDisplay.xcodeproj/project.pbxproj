@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C862521D283E27CE00631E71 /* PHAssetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862521C283E27CE00631E71 /* PHAssetExtension.swift */; };
+		C88498C7283F557D0080016C /* ScreenModeEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88498C6283F557D0080016C /* ScreenModeEnum.swift */; };
 		C8D5898F283B234300B0AE6C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D5898E283B234300B0AE6C /* AppDelegate.swift */; };
 		C8D58991283B234300B0AE6C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D58990283B234300B0AE6C /* SceneDelegate.swift */; };
 		C8D58993283B234300B0AE6C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D58992283B234300B0AE6C /* ViewController.swift */; };
@@ -80,6 +81,7 @@
 
 /* Begin PBXFileReference section */
 		C862521C283E27CE00631E71 /* PHAssetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExtension.swift; sourceTree = "<group>"; };
+		C88498C6283F557D0080016C /* ScreenModeEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenModeEnum.swift; sourceTree = "<group>"; };
 		C8D5898B283B234300B0AE6C /* VideoDisplay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VideoDisplay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D5898E283B234300B0AE6C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D58990283B234300B0AE6C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -199,6 +201,7 @@
 				C8D58A15283B428A00B0AE6C /* TabBarCollectionViewCell.swift */,
 				C8D58A16283B428A00B0AE6C /* TabBarCollectionViewCell.xib */,
 				C862521C283E27CE00631E71 /* PHAssetExtension.swift */,
+				C88498C6283F557D0080016C /* ScreenModeEnum.swift */,
 			);
 			path = VideoDisplay;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C862521D283E27CE00631E71 /* PHAssetExtension.swift in Sources */,
+				C88498C7283F557D0080016C /* ScreenModeEnum.swift in Sources */,
 				C8D58A14283B2F0600B0AE6C /* FooterTabBar.swift in Sources */,
 				C8D58993283B234300B0AE6C /* ViewController.swift in Sources */,
 				C8D58A17283B428B00B0AE6C /* TabBarCollectionViewCell.swift in Sources */,
