@@ -16,11 +16,31 @@ class ViewController: UIViewController {
     private weak var footerTabBar: FooterTabBar!
     private var video: PHAsset!
     
+    
+    func addGradientForScreen()
+    {
+        let gradient1 = CAGradientLayer()
+        gradient1.frame = videoImageView.frame
+        gradient1.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        gradient1.locations = [0.75, 1.0]
+        
+        let gradient2 = CAGradientLayer()
+        gradient2.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: headerView.bounds.height)
+        gradient2.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+        gradient2.locations = [0, 0.8]
+
+        videoImageView.layer.insertSublayer(gradient1, at: 0)
+        headerView.layer.insertSublayer(gradient2, at: 0)
+    }
+    // MARK: full screen mode
     func onModeFullScreen()
     {
         self.footerTabBar.changeToFullScreenMode()
         headerView.backgroundColor = .clear
+        addGradientForScreen()
     }
+    
+    // MARK: fit screen mode
     func onModeFitScreen()
     {
         self.footerTabBar.changeToFitScreenMode()
@@ -36,6 +56,18 @@ class ViewController: UIViewController {
             print("the width of video is \(video.pixelWidth)")
             print("the height of screen is \(self.view.bounds.height)")
             print("the width of screen is \(self.view.bounds.width)")
+            let videoHeight = video.pixelHeight
+            let videoWidth = video.pixelWidth
+            let screenHeight = (Int)(self.view.bounds.height)
+            let screenWidth = (Int)(self.view.bounds.width)
+            if videoHeight > screenHeight && videoWidth > screenWidth
+            {
+                onModeFullScreen()
+            }
+            else
+            {
+                onModeFitScreen()
+            }
             videoImageView.image = video.fetchImage(widthSize: 1000, heightSize: 1000, contentMode: .aspectFit)
         }
         else
