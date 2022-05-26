@@ -15,9 +15,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="4LO-0M-ZF1">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70z-AI-yBX">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cq1-af-pfj">
                                 <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                                 <subviews>
@@ -62,19 +63,19 @@
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="cq1-af-pfj" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="2Id-TJ-Y5Z"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="4LO-0M-ZF1" secondAttribute="trailing" priority="900" id="Dbo-3x-pAY"/>
-                            <constraint firstItem="4LO-0M-ZF1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" priority="900" id="L6W-7e-abZ"/>
+                            <constraint firstItem="70z-AI-yBX" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="-44" id="Rxm-wJ-H6f"/>
+                            <constraint firstItem="70z-AI-yBX" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Zi9-pX-ev0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cq1-af-pfj" secondAttribute="trailing" id="ffx-iv-nI8"/>
-                            <constraint firstItem="4LO-0M-ZF1" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" priority="900" id="qdh-se-0KW"/>
                             <constraint firstItem="cq1-af-pfj" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="rv6-GX-keE"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="4LO-0M-ZF1" secondAttribute="bottom" priority="900" id="t6a-4A-nFK"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="70z-AI-yBX" secondAttribute="bottom" id="tth-WI-XHP"/>
+                            <constraint firstItem="70z-AI-yBX" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="vi7-ch-ROT"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backButton" destination="xTL-Mj-zdR" id="X5n-pX-tGC"/>
                         <outlet property="headerView" destination="cq1-af-pfj" id="mjv-Yg-bHX"/>
                         <outlet property="saveButton" destination="7F7-ac-BgC" id="QaK-wx-TMG"/>
-                        <outlet property="videoImageView" destination="4LO-0M-ZF1" id="RWE-im-8AJ"/>
+                        <outlet property="videoImageView" destination="70z-AI-yBX" id="9Bg-OX-l03"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

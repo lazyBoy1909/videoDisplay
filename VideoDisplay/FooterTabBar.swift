@@ -9,7 +9,7 @@ import UIKit
 
 protocol FooterTabBarDelegate: AnyObject
 {
-    func footerTabBar(_ footerView: UIView)
+    func footerTabBarDidSelectItem(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
 }
 
 class FooterTabBar: UIView {
@@ -30,18 +30,6 @@ class FooterTabBar: UIView {
         tabBarCollectionView.delegate = self
         tabBarCollectionView.dataSource = self
     }
-    
-    func changeToFullScreenMode()
-    {
-        tabBarCollectionView.backgroundColor = .clear
-        self.backgroundColor = .clear
-    }
-    
-    func changeToFitScreenMode()
-    {
-        tabBarCollectionView.backgroundColor = .black
-        self.backgroundColor = .black
-    }
 }
 extension FooterTabBar: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {
@@ -59,6 +47,6 @@ extension FooterTabBar: UICollectionViewDelegate, UICollectionViewDataSource, UI
         return CGSize(width: 61, height: self.bounds.height)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        delegate?.footerTabBar(self)
+        delegate?.footerTabBarDidSelectItem(self.tabBarCollectionView, didSelectItemAt: indexPath)
     }
 }

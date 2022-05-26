@@ -8,6 +8,7 @@
 import Foundation
 import Photos
 import UIKit
+import AVKit
 // MARK: - extends PHAsset
 extension PHAsset
 {
@@ -23,23 +24,17 @@ extension PHAsset
         return assetImages.randomElement()
     }
     
-    func fetchImage(widthSize: Double, heightSize: Double, contentMode: PHImageContentMode) ->UIImage
-    {
-        let manager = PHImageManager.default()
-        var resultImage: UIImage!
-        let option = PHImageRequestOptions()
-        option.isSynchronous = true
-        manager.requestImage(for:  self, targetSize: CGSize(width: widthSize,height: heightSize), contentMode: contentMode, options: option, resultHandler: { (result, info)-> Void in
-            if let image = result
-            {
-                resultImage = image
-            }
-            else
-            {
-                print("Failed to get image from asset")
-                resultImage = UIImage(systemName: "exclamationmark.icloud.fill")!;
-            }
-        })
-        return resultImage
-    }
+    func getAVAsset(completionHandler : @escaping ((_ asset : AVAsset?) -> Void)){
+        if self.mediaType == .video {
+            let options: PHVideoRequestOptions = PHVideoRequestOptions()
+            options.version = .original
+            PHImageManager.default().requestAVAsset(forVideo: self, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
+                if let aVAsset = asset {
+                    completionHandler(aVAsset)
+                } else {
+                    completionHandler(nil)
+                }
+            })
+        }
+      }
 }
