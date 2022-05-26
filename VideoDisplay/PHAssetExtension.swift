@@ -24,13 +24,13 @@ extension PHAsset
         return assetImages.randomElement()
     }
     
-    func getAVAsset(completionHandler : @escaping ((_ responseURL : AVAsset?) -> Void)){
+    func getAVAsset(completionHandler : @escaping ((_ asset : AVAsset?) -> Void)){
         if self.mediaType == .video {
             let options: PHVideoRequestOptions = PHVideoRequestOptions()
             options.version = .original
             PHImageManager.default().requestAVAsset(forVideo: self, options: options, resultHandler: {(asset: AVAsset?, audioMix: AVAudioMix?, info: [AnyHashable : Any]?) -> Void in
-                if let urlAsset = asset as? AVURLAsset {
-                    completionHandler(urlAsset)
+                if let aVAsset = asset {
+                    completionHandler(aVAsset)
                 } else {
                     completionHandler(nil)
                 }

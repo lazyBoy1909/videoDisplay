@@ -19,18 +19,18 @@ class ViewController: UIViewController {
     private var player: AVPlayer!
     func addGradientForScreen()
     {
-        let gradient1 = CAGradientLayer()
-        gradient1.frame = videoImageView.frame
-        gradient1.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
-        gradient1.locations = [0.75, 1.0]
+        let bottomGradient = CAGradientLayer()
+        bottomGradient.frame = videoImageView.frame
+        bottomGradient.colors = [UIColor.clear.cgColor, UIColor.black.cgColor]
+        bottomGradient.locations = [0.75, 1.0]
         
-        let gradient2 = CAGradientLayer()
-        gradient2.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 88)
-        gradient2.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
-        gradient2.locations = [0, 1]
+        let topGradient = CAGradientLayer()
+        topGradient.frame = CGRect(x: 0, y: 0, width: self.view.bounds.width, height: 88)
+        topGradient.colors = [UIColor.black.cgColor, UIColor.clear.cgColor]
+        topGradient.locations = [0, 1]
 
-        videoImageView.layer.insertSublayer(gradient1, at: 0)
-        videoImageView.layer.insertSublayer(gradient2, at: 0)
+        videoImageView.layer.insertSublayer(bottomGradient, at: 0)
+        videoImageView.layer.insertSublayer(topGradient, at: 0)
     }
 
 
@@ -154,7 +154,7 @@ class ViewController: UIViewController {
 // MARK: FooterTabBarDelegate
 extension ViewController: FooterTabBarDelegate
 {
-    func footerTabBarWillShowNotification(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func footerTabBarDidSelectItem(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         showAlert()
     }
 }
