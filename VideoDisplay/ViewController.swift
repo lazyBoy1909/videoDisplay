@@ -109,7 +109,6 @@ class ViewController: UIViewController {
         }
     }
     
-    
     func adjustViewAppear()
     {
         animHide(viewMove: footerTabBar!)
