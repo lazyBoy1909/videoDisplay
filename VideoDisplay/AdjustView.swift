@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 protocol AdjustViewDelegate: AnyObject
 {
     func adjustViewExitButtonDidTap(_ sender: UIButton)
