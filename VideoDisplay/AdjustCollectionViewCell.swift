@@ -7,6 +7,7 @@
 
 import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
+<<<<<<< HEAD
 
     @IBOutlet private weak var itemImageView: UIImageView!
     var circularProgressView: CircularProgressView!
@@ -15,12 +16,28 @@ class AdjustCollectionViewCell: UICollectionViewCell {
     {
         self.circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
         self.addSubview(circularProgressView)
+=======
+    @IBOutlet private weak var itemContentView: UIView!
+    let shape = CAShapeLayer()
+    var itemImage: [UIImage?] = [UIImage(named: "adj1"), UIImage(named: "adj2"), UIImage(named: "adj3"), UIImage(named: "adj4"), UIImage(named: "adj5"), UIImage(named: "adj6"), UIImage(named: "adj7")]
+    
+    func createCircularProgressBar()
+    {
+        let circlePath = UIBezierPath(arcCenter: self.center, radius: self.bounds.height/3, startAngle: 0, endAngle: .pi*2, clockwise: true)
+        shape.path = circlePath.cgPath
+        shape.lineWidth = 3
+        shape.strokeColor = UIColor.red.cgColor
+        shape.fillColor = UIColor.clear.cgColor
+        shape.strokeEnd = 1
+        self.layer.addSublayer(shape)
+>>>>>>> 31dc929 (first commit,create adjust view with animation up and down, create basic circular progress bar)
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         createCircularProgressBar()
     }
+<<<<<<< HEAD
 
     func initAdjustCell(itemImageForCell imageCell: UIImage?)
     {
@@ -63,5 +80,15 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         valueLabel.text = "\((Int)(offset/10))"
         valueLabel.textColor = .white
         self.addSubview(valueLabel)
+=======
+    func initAdjustCell(indexPath: IndexPath)
+    {
+        if let image = itemImage[indexPath.row]
+        {
+            let imageView = UIImageView(image: image)
+            imageView.frame = CGRect(x: 14.5, y: 14.5, width: contentView.bounds.width/2-5, height: contentView.bounds.height/2-5)
+            contentView.addSubview(imageView)
+        }
+>>>>>>> 31dc929 (first commit,create adjust view with animation up and down, create basic circular progress bar)
     }
 }
