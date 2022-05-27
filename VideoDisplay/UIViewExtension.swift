@@ -16,7 +16,7 @@ extension UIView{
     }
     func animHide(){
         UIView.animate(withDuration: 0.25, animations: {
-            self.transform = CGAffineTransform(translationX: 0, y: self.bounds.height)
+            self.transform = CGAffineTransform(translationX: 0, y: self.bounds.height + 200)
         })
     }
 }

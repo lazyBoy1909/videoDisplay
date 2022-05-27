@@ -108,26 +108,23 @@ class ViewController: UIViewController {
         }
     }
     
-    func createAdjustView()
-    {
-        if let adjustView = Bundle.main.loadNibNamed("AdjustView", owner: self, options: nil)?.first as? AdjustView
-        {
-            self.adjustView = adjustView
-        }
-    }
     
     func adjustViewAppear()
     {
         footerTabBar.animHide()
-        self.view.addSubview(adjustView)
-        adjustView.backgroundColor = .clear
-        //adjustView.delegate = self
-        adjustView.translatesAutoresizingMaskIntoConstraints = false
-        adjustView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -139).isActive = true
-        footerTabBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-        footerTabBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-        footerTabBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-        adjustView.animShow()
+        if let adjustView = Bundle.main.loadNibNamed("AdjustView", owner: self, options: nil)?.first as? AdjustView
+        {
+            self.adjustView = adjustView
+            self.view.addSubview(adjustView)
+            //adjustView.backgroundColor = .clear
+            adjustView.delegate = self
+            adjustView.translatesAutoresizingMaskIntoConstraints = false
+            adjustView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200).isActive = true
+            footerTabBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            footerTabBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+            footerTabBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+            adjustView.animShow()
+        }
     }
     func initBasicGUI()
     {
@@ -165,7 +162,27 @@ class ViewController: UIViewController {
 extension ViewController: FooterTabBarDelegate
 {
     func footerTabBarDidSelectItem(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        showAlert()
+        switch indexPath.row
+        {
+        case 11: adjustViewAppear()
+        default: showAlert()
+        }
     }
+}
+
+// MARK: AdjustViewDelegate
+extension ViewController: AdjustViewDelegate
+{
+    func adjustViewOkButtonDidTap(_ sender: UIButton) {
+        adjustView.animHide()
+        footerTabBar.animShow()
+    }
+    
+    func adjustViewExitButtonDidTap(_ sender: UIButton) {
+        adjustView.animHide()
+        footerTabBar.animShow()
+    }
+    
+    
 }
 
