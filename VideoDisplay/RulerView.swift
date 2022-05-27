@@ -51,4 +51,3 @@ class RulerView: UIView {
     }
   }
 }
-

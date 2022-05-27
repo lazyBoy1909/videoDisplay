@@ -156,6 +156,8 @@ class ViewController: UIViewController {
             adjustView.animShow()
         }
     }
+    
+    
     func initBasicGUI()
     {
         saveButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.29)
