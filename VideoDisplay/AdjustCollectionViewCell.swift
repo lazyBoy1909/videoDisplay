@@ -7,6 +7,7 @@
 
 import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
+
     @IBOutlet private weak var itemImageView: UIImageView!
     var circularProgressView: CircularProgressView!
     
