@@ -18,6 +18,8 @@ class ViewController: UIViewController {
     private weak var adjustView: AdjustView!
     private var video: PHAsset!
     private var player: AVPlayer!
+    var rulerView: RulerView = RulerView()
+    var scrollView: UIScrollView = UIScrollView()
     func addGradientForScreen()
     {
         let bottomGradientLayer = CAGradientLayer()
@@ -126,6 +128,8 @@ class ViewController: UIViewController {
             adjustView.animShow()
         }
     }
+    
+    
     func initBasicGUI()
     {
         saveButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.29)
