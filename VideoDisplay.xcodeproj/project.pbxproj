@@ -421,15 +421,15 @@
 				C8FA99182847001000F9AA19 /* MontserratAlternates-Light.otf in Resources */,
 				C8FA990A2847001000F9AA19 /* MontserratAlternates-ExtraLightItalic.otf in Resources */,
 				C8D58996283B234300B0AE6C /* Main.storyboard in Resources */,
-				C8FA99062847001000F9AA19 /* MontserratAlternates-MediumItalic.otf in Resources */,
-				C8FA99052847001000F9AA19 /* Montserrat-Thin.otf in Resources */,
+				C8D58A04283B27D800B0AE6C /* MontserratAlternates-ExtraLight.otf in Resources */,
+				C8D58A00283B27D800B0AE6C /* MontserratAlternates-BoldItalic.otf in Resources */,
+				C8D589F4283B27D800B0AE6C /* MontserratAlternates-Bold.otf in Resources */,
+				C8D58A09283B27D800B0AE6C /* MontserratAlternates-Italic.otf in Resources */,
+				C8D589FA283B27D800B0AE6C /* Montserrat-SemiBoldItalic.otf in Resources */,
+				C8D589FD283B27D800B0AE6C /* MontserratAlternates-SemiBold.otf in Resources */,
+				C8D589F9283B27D800B0AE6C /* MontserratAlternates-SemiBoldItalic.otf in Resources */,
+				C8D589EE283B27D800B0AE6C /* Montserrat-Light.otf in Resources */,
 				C88498D1283F8B110080016C /* AdjustCollectionViewCell.xib in Resources */,
-				C8FA991C2847001000F9AA19 /* Montserrat-Black.otf in Resources */,
-				C8FA99132847001000F9AA19 /* Montserrat-Regular.otf in Resources */,
-				C8FA98FD2847001000F9AA19 /* Montserrat-BlackItalic.otf in Resources */,
-				C8FA98FC2847001000F9AA19 /* Montserrat-Bold.otf in Resources */,
-				C8FA99122847001000F9AA19 /* MontserratAlternates-SemiBold.otf in Resources */,
-				C8FA99032847001000F9AA19 /* Montserrat-Light.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
