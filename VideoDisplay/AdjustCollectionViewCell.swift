@@ -21,6 +21,7 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         createCircularProgressBar()
     }
+
     func initAdjustCell(itemImageForCell imageCell: UIImage?)
     {
         if let image = imageCell
