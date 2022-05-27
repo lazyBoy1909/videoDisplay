@@ -18,7 +18,12 @@ class ViewController: UIViewController {
     private weak var adjustView: AdjustView?
     private var video: PHAsset!
     private var player: AVPlayer!
+<<<<<<< HEAD
     var itemImage: [UIImage?] = [UIImage(named: "adj1"), UIImage(named: "adj2"), UIImage(named: "adj3"), UIImage(named: "adj4"), UIImage(named: "adj5"), UIImage(named: "adj6"), UIImage(named: "adj7")]
+=======
+    var rulerView: RulerView = RulerView()
+    var scrollView: UIScrollView = UIScrollView()
+>>>>>>> 83ee69c (add func create sliding ruler, add delegation to UIScrollViewDelegate)
     func addGradientForScreen()
     {
         let bottomGradientLayer = CAGradientLayer()
@@ -175,6 +180,8 @@ class ViewController: UIViewController {
             adjustView.animShow()
         }
     }
+    
+    
     func initBasicGUI()
     {
         saveButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.29)
