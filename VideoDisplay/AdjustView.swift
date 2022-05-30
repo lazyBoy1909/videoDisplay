@@ -19,8 +19,9 @@ class AdjustView: UIView {
     @IBOutlet private weak var exitButton: UIButton!
     @IBOutlet private weak var okButton: UIButton!
     @IBOutlet private weak var itemCollectionView: UICollectionView!
+    @IBOutlet weak var collectionViewLeadingConstraint: NSLayoutConstraint!
     var delegate: AdjustViewDelegate?
-    var currentItem: Int = 0
+    var currentItem: Int = 2
     var currentValue: Double = 0
     func initCollectionView()
     {
@@ -78,6 +79,18 @@ extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICol
         {
             cell.changeToNumberDisplayState(currentValue: currentValue)
         }
+        for index in 0...6
+        {
+            if(index != currentItem)
+            {
+                if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? AdjustCollectionViewCell
+                {
+                    cell.changeToImageDisplayState()
+                }
+            }
+        }
+        let positionX = (indexPath.row - 3)*65 + 55
+        itemCollectionView.setContentOffset( CGPoint(x: positionX,y: 0), animated:true )
     }
 }
 
@@ -90,6 +103,8 @@ extension AdjustView: UIScrollViewDelegate
         if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: currentItem, section: 0)) as? AdjustCollectionViewCell
         {
             cell.adjustCircularProgressBarItem(currentValue: offset)
+            cell.changeToNumberDisplayState(currentValue: offset)
         }
+
     }
 }

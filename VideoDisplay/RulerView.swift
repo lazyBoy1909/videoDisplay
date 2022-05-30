@@ -29,11 +29,7 @@ class RulerView: UIView {
   override func draw(_ rect: CGRect) {
  
      UIColor.white.set()
-     let contentWidth = max(rect.width, contentSize)
      let lineGap:CGFloat = 10
-    
-     let totalNumberOfLines = Int(contentWidth/lineGap)
-    
      let startIndex = Int(contentOffset/lineGap)
      let endIndex = Int((contentOffset + rect.width)/lineGap)
      let beginOffset = contentOffset - CGFloat(startIndex)*lineGap
