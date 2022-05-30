@@ -41,13 +41,36 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         shape.strokeEnd = offset/1000
     }
     
-    func changeToNumberDisplayState(currentValue offset: Double)
+    func changeToImageDisplayState()
     {
         self.subviews.forEach
         {
-            $0.isHidden = true
+            if($0 is UILabel)
+            {
+                $0.isHidden = true
+            }
+            else
+            {
+                $0.isHidden = false
+            }
         }
-        let valueLabel = UILabel()
+    }
+    func changeToNumberDisplayState(currentValue offset: Double)
+    {
+        var valueLabel = UILabel()
+        var existedUILabelView: Bool = false
+        for subview in self.subviews {
+            if subview is UILabel {
+                // existed a label
+                subview.isHidden = false
+                existedUILabelView = true
+                valueLabel = subview as! UILabel
+            }
+            else
+            {
+                subview.isHidden = true
+            }
+        }
         if(offset < 100)
         {
             valueLabel.frame = CGRect(x: 20, y: 14, width: self.bounds.width/2-8, height: self.bounds.height/2-8)
@@ -63,8 +86,27 @@ class AdjustCollectionViewCell: UICollectionViewCell {
             valueLabel.frame = CGRect(x: 13, y: 11, width: self.bounds.width/2-2, height: self.bounds.height/2-2)
             valueLabel.font = .systemFont(ofSize: 13)
         }
-        valueLabel.text = "\((Int)(offset/10))"
+        let ratioValue: Int
+        if(offset > 1000)
+        {
+            ratioValue = 100
+        }
+        else if(offset < 0)
+        {
+            ratioValue  = 0
+        }
+        else
+        {
+            ratioValue = (Int)(offset/10)
+        }
+        valueLabel.text = "\(ratioValue)"
         valueLabel.textColor = .white
-        self.addSubview(valueLabel)
+        
+        //if existed a label, no need to add a new subview
+        if(!existedUILabelView)
+        {
+            self.addSubview(valueLabel)
+        }
+        
     }
 }
