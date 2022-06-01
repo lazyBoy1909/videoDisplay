@@ -205,6 +205,10 @@
 				C8D58997283B234500B0AE6C /* Assets.xcassets */,
 				C8D58999283B234500B0AE6C /* LaunchScreen.storyboard */,
 				C8D5899C283B234500B0AE6C /* Info.plist */,
+				C8FA992328470E8200F9AA19 /* AdjustView.swift */,
+				C8FA992128470E8200F9AA19 /* AdjustView.xib */,
+				C8FA992028470E8200F9AA19 /* UIViewExtension.swift */,
+				C8FA992228470E8200F9AA19 /* ViewController.swift */,
 				C8D58A0B283B2B1000B0AE6C /* UIImageExtension.swift */,
 				C8D58A11283B2EE900B0AE6C /* FooterTabBar.xib */,
 				C8D58A13283B2F0600B0AE6C /* FooterTabBar.swift */,
@@ -457,6 +461,7 @@
 				C862521D283E27CE00631E71 /* PHAssetExtension.swift in Sources */,
 				C8D58A14283B2F0600B0AE6C /* FooterTabBar.swift in Sources */,
 				C8D58993283B234300B0AE6C /* ViewController.swift in Sources */,
+				C8FA992628470E8200F9AA19 /* ViewController.swift in Sources */,
 				C8D58A17283B428B00B0AE6C /* TabBarCollectionViewCell.swift in Sources */,
 				C88498D0283F8B110080016C /* AdjustCollectionViewCell.swift in Sources */,
 				C8D5898F283B234300B0AE6C /* AppDelegate.swift in Sources */,
@@ -464,6 +469,7 @@
 				C8D58991283B234300B0AE6C /* SceneDelegate.swift in Sources */,
 				C8FA992928476C6E00F9AA19 /* CircularProgressView.swift in Sources */,
 				C8D58A0C283B2B1000B0AE6C /* UIImageExtension.swift in Sources */,
+				C8FA992728470E8200F9AA19 /* AdjustView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
