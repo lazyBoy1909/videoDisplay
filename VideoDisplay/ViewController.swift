@@ -14,10 +14,11 @@ class ViewController: UIViewController {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var videoImageView: UIView!
-    private weak var footerTabBar: FooterTabBar!
-    private weak var adjustView: AdjustView!
+    private weak var footerTabBar: FooterTabBar?
+    private weak var adjustView: AdjustView?
     private var video: PHAsset!
     private var player: AVPlayer!
+    var itemImage: [UIImage?] = [UIImage(named: "adj1"), UIImage(named: "adj2"), UIImage(named: "adj3"), UIImage(named: "adj4"), UIImage(named: "adj5"), UIImage(named: "adj6"), UIImage(named: "adj7")]
     func addGradientForScreen()
     {
         let bottomGradientLayer = CAGradientLayer()
@@ -111,21 +112,34 @@ class ViewController: UIViewController {
     
     func adjustViewAppear()
     {
-        footerTabBar.animHide()
+        animHide(viewMove: footerTabBar!)
         if let adjustView = Bundle.main.loadNibNamed("AdjustView", owner: self, options: nil)?.first as? AdjustView
         {
             self.adjustView = adjustView
+            adjustView.itemImage = self.itemImage
             self.view.addSubview(adjustView)
-            //adjustView.backgroundColor = .clear
             adjustView.delegate = self
             adjustView.translatesAutoresizingMaskIntoConstraints = false
             adjustView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200).isActive = true
-            footerTabBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-            footerTabBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
-            footerTabBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
-            adjustView.animShow()
+            footerTabBar!.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            footerTabBar!.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+            footerTabBar!.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+            animShow(viewMove: adjustView)
         }
     }
+    
+    func animShow(viewMove : UIView){
+        UIView.animate(withDuration: 0.25, animations: {
+            viewMove.isHidden = false
+            viewMove.transform = CGAffineTransform(translationX: 0, y: 0)
+        })
+    }
+    func animHide(viewMove : UIView){
+        UIView.animate(withDuration: 0.25, animations: {
+            viewMove.transform = CGAffineTransform(translationX: 0, y: viewMove.bounds.height + 200)
+        })
+    }
+    
     func initBasicGUI()
     {
         saveButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.29)
@@ -174,13 +188,13 @@ extension ViewController: FooterTabBarDelegate
 extension ViewController: AdjustViewDelegate
 {
     func adjustViewOkButtonDidTap(_ sender: UIButton) {
-        adjustView.animHide()
-        footerTabBar.animShow()
+        animHide(viewMove: adjustView!)
+        animShow(viewMove: footerTabBar!)
     }
     
     func adjustViewExitButtonDidTap(_ sender: UIButton) {
-        adjustView.animHide()
-        footerTabBar.animShow()
+        animHide(viewMove: adjustView!)
+        animShow(viewMove: footerTabBar!)
     }
     
     
