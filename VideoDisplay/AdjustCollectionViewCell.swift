@@ -7,7 +7,6 @@
 
 import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
-    @IBOutlet private weak var itemContentView: UIView!
     let shape = CAShapeLayer()
     var itemImage: [UIImage?] = [UIImage(named: "adj1"), UIImage(named: "adj2"), UIImage(named: "adj3"), UIImage(named: "adj4"), UIImage(named: "adj5"), UIImage(named: "adj6"), UIImage(named: "adj7")]
     
@@ -17,8 +16,7 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         shape.path = circlePath.cgPath
         shape.lineWidth = 2
         shape.strokeColor = UIColor.red.cgColor
-        shape.fillColor = UIColor.clear.cgColor
-        shape.strokeEnd = 1
+        shape.fillColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1).cgColor
         self.layer.addSublayer(shape)
     }
     
@@ -26,19 +24,21 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         createCircularProgressBar()
     }
-    func initAdjustCell(indexPath: IndexPath)
+    func initAdjustCell(indexPath: IndexPath, itemValue: [Double])
     {
         if let image = itemImage[indexPath.row]
         {
             let imageView = UIImageView(image: image)
             imageView.frame = CGRect(x: 14, y: 14, width: self.bounds.width/2-5, height: self.bounds.height/2-5)
+            imageView.backgroundColor = UIColor(red: 0.2, green: 0.2, blue: 0.2, alpha: 1)
             self.addSubview(imageView)
         }
+        shape.strokeEnd = (CGFloat)(itemValue[indexPath.row]/100)
     }
     
-    func adjustCircularProgressBarItem(currentValue offset: Double)
+    func updateItemStrokeEnd(newStrokenEndValue: Double)
     {
-        shape.strokeEnd = offset/1000
+        self.shape.strokeEnd = newStrokenEndValue
     }
     
     func changeToImageDisplayState()
@@ -71,20 +71,22 @@ class AdjustCollectionViewCell: UICollectionViewCell {
                 subview.isHidden = true
             }
         }
+        
+        //add value label to cell
         if(offset < 100)
         {
             valueLabel.frame = CGRect(x: 20, y: 14, width: self.bounds.width/2-8, height: self.bounds.height/2-8)
-            valueLabel.font = .systemFont(ofSize: 15)
+            valueLabel.font = UIFont(name: "Montserrat-Bold", size: 15)
         }
         else if(offset >= 100 && offset < 1000)
         {
             valueLabel.frame = CGRect(x: 16, y: 14, width: self.bounds.width/2-8, height: self.bounds.height/2-8)
-            valueLabel.font = .systemFont(ofSize: 15)
+            valueLabel.font = UIFont(name: "Montserrat-Bold", size: 14)
         }
         else
         {
             valueLabel.frame = CGRect(x: 13, y: 11, width: self.bounds.width/2-2, height: self.bounds.height/2-2)
-            valueLabel.font = .systemFont(ofSize: 13)
+            valueLabel.font = UIFont(name: "Montserrat-Bold", size: 13)
         }
         let ratioValue: Int
         if(offset > 1000)
@@ -102,7 +104,7 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         valueLabel.text = "\(ratioValue)"
         valueLabel.textColor = .white
         
-        //if existed a label, no need to add a new subview
+        //if existed a label, then no need to add a new subview
         if(!existedUILabelView)
         {
             self.addSubview(valueLabel)
