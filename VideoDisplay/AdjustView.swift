@@ -11,6 +11,7 @@ protocol AdjustViewDelegate
 {
     func adjustViewExitButtonDidTap(_ sender: UIButton)
     func adjustViewOkButtonDidTap(_ sender: UIButton)
+    func adjustViewScrollViewDidScroll(didScrollAtItemIndex index: Int,newValueAfterScroll newValue: Double)
 }
 
 class AdjustView: UIView {
@@ -20,9 +21,10 @@ class AdjustView: UIView {
     @IBOutlet private weak var okButton: UIButton!
     @IBOutlet private weak var itemCollectionView: UICollectionView!
     @IBOutlet weak var collectionViewLeadingConstraint: NSLayoutConstraint!
+    var itemValue: [Double]!
     var delegate: AdjustViewDelegate?
     var currentItem: Int = 2
-    var currentValue: Double = 0
+    var currentValue: Double = 100
     func initCollectionView()
     {
         itemCollectionView.delegate = self
@@ -40,6 +42,7 @@ class AdjustView: UIView {
         rulerScrollView.addSubview(rulerView)
         rulerScrollView.backgroundColor = .clear
     }
+    
     override func layoutSubviews() {
         exitButton.layer.cornerRadius = exitButton.bounds.width/2
         exitButton.clipsToBounds = true
@@ -49,11 +52,26 @@ class AdjustView: UIView {
         initRulerScrollView()
     }
 
+    func updateItemValue()
+    {
+        for index in 0...6
+        {
+            let indexPath = IndexPath(row: index, section: 0)
+            if let cell = itemCollectionView.cellForItem(at: indexPath) as? AdjustCollectionViewCell
+            {
+                itemValue[index] = cell.shape.strokeEnd*100
+                print(itemValue[index])
+            }
+        }
+    }
+
     @IBAction func exitButtonTapped(_ sender: UIButton) {
         delegate?.adjustViewExitButtonDidTap(sender)
     }
     @IBAction func okButtonTapped(_ sender: UIButton) {
+        
         delegate?.adjustViewOkButtonDidTap(sender)
+        updateItemValue()
     }
 }
 
@@ -65,7 +83,7 @@ extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = itemCollectionView.dequeueReusableCell(withReuseIdentifier: "AdjustCollectionViewCell", for: indexPath) as! AdjustCollectionViewCell
-        cell.initAdjustCell(indexPath: indexPath)
+        cell.initAdjustCell(indexPath: indexPath, itemValue: itemValue)
         return cell
     }
     
@@ -77,7 +95,7 @@ extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICol
         currentItem = indexPath.row
         if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: currentItem, section: 0)) as? AdjustCollectionViewCell
         {
-            cell.changeToNumberDisplayState(currentValue: currentValue)
+            cell.changeToNumberDisplayState(currentValue: Double(itemValue[indexPath.row]))
         }
         for index in 0...6
         {
@@ -98,13 +116,14 @@ extension AdjustView: UIScrollViewDelegate
 {
     public func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offset = scrollView.contentOffset.x
-        currentValue = offset
+        itemValue[currentItem] = offset
         print(offset)
         if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: currentItem, section: 0)) as? AdjustCollectionViewCell
         {
-            cell.adjustCircularProgressBarItem(currentValue: offset)
+            cell.updateItemStrokeEnd(newStrokenEndValue: offset/1000)
             cell.changeToNumberDisplayState(currentValue: offset)
         }
+        self.delegate?.adjustViewScrollViewDidScroll(didScrollAtItemIndex: self.currentItem, newValueAfterScroll: offset/10)
 
     }
 }
