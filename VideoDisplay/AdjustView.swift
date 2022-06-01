@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol AdjustViewDelegate
+protocol AdjustViewDelegate: AnyObject
 {
     func adjustViewExitButtonDidTap(_ sender: UIButton)
     func adjustViewOkButtonDidTap(_ sender: UIButton)
@@ -18,7 +18,8 @@ class AdjustView: UIView {
     @IBOutlet private weak var exitButton: UIButton!
     @IBOutlet private weak var okButton: UIButton!
     @IBOutlet private weak var itemCollectionView: UICollectionView!
-    var delegate: AdjustViewDelegate?
+    var itemImage: [UIImage?]!
+    weak var delegate: AdjustViewDelegate?
     
     func initCollectionView()
     {
@@ -28,10 +29,12 @@ class AdjustView: UIView {
     }
     
     override func layoutSubviews() {
+        super.layoutSubviews()
         exitButton.layer.cornerRadius = exitButton.bounds.width/2
         exitButton.clipsToBounds = true
         okButton.layer.cornerRadius = okButton.bounds.width/2
         okButton.clipsToBounds = true
+        initCollectionView()
     }
 
     @IBAction func exitButtonTapped(_ sender: UIButton) {
@@ -50,6 +53,7 @@ extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = itemCollectionView.dequeueReusableCell(withReuseIdentifier: "AdjustCollectionViewCell", for: indexPath) as! AdjustCollectionViewCell
+        cell.itemImage = self.itemImage
         cell.initAdjustCell(indexPath: indexPath)
         return cell
     }

@@ -10,7 +10,6 @@
 		C862521D283E27CE00631E71 /* PHAssetExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C862521C283E27CE00631E71 /* PHAssetExtension.swift */; };
 		C88498C9283F7A990080016C /* AdjustView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88498C8283F7A990080016C /* AdjustView.swift */; };
 		C88498CB283F7AAF0080016C /* AdjustView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88498CA283F7AAF0080016C /* AdjustView.xib */; };
-		C88498CD283F81150080016C /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88498CC283F81150080016C /* UIViewExtension.swift */; };
 		C88498D0283F8B110080016C /* AdjustCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88498CE283F8B110080016C /* AdjustCollectionViewCell.swift */; };
 		C88498D1283F8B110080016C /* AdjustCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C88498CF283F8B110080016C /* AdjustCollectionViewCell.xib */; };
 		C88498DF2840AC350080016C /* RulerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C88498DE2840AC350080016C /* RulerView.swift */; };
@@ -65,6 +64,7 @@
 		C8FA991D2847001000F9AA19 /* MontserratAlternates-ExtraBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C8FA98F82847001000F9AA19 /* MontserratAlternates-ExtraBoldItalic.otf */; };
 		C8FA991E2847001000F9AA19 /* MontserratAlternates-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = C8FA98F92847001000F9AA19 /* MontserratAlternates-Italic.otf */; };
 		C8FA991F2847001000F9AA19 /* Montserrat-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = C8FA98FA2847001000F9AA19 /* Montserrat-SemiBold.otf */; };
+		C8FA992928476C6E00F9AA19 /* CircularProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FA992828476C6E00F9AA19 /* CircularProgressView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,7 +88,6 @@
 		C862521C283E27CE00631E71 /* PHAssetExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PHAssetExtension.swift; sourceTree = "<group>"; };
 		C88498C8283F7A990080016C /* AdjustView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustView.swift; sourceTree = "<group>"; };
 		C88498CA283F7AAF0080016C /* AdjustView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdjustView.xib; sourceTree = "<group>"; };
-		C88498CC283F81150080016C /* UIViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
 		C88498CE283F8B110080016C /* AdjustCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjustCollectionViewCell.swift; sourceTree = "<group>"; };
 		C88498CF283F8B110080016C /* AdjustCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AdjustCollectionViewCell.xib; sourceTree = "<group>"; };
 		C88498DE2840AC350080016C /* RulerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RulerView.swift; sourceTree = "<group>"; };
@@ -147,6 +146,7 @@
 		C8FA98F82847001000F9AA19 /* MontserratAlternates-ExtraBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-ExtraBoldItalic.otf"; sourceTree = "<group>"; };
 		C8FA98F92847001000F9AA19 /* MontserratAlternates-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "MontserratAlternates-Italic.otf"; sourceTree = "<group>"; };
 		C8FA98FA2847001000F9AA19 /* Montserrat-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-SemiBold.otf"; sourceTree = "<group>"; };
+		C8FA992828476C6E00F9AA19 /* CircularProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularProgressView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -213,10 +213,10 @@
 				C862521C283E27CE00631E71 /* PHAssetExtension.swift */,
 				C88498C8283F7A990080016C /* AdjustView.swift */,
 				C88498CA283F7AAF0080016C /* AdjustView.xib */,
-				C88498CC283F81150080016C /* UIViewExtension.swift */,
 				C88498CE283F8B110080016C /* AdjustCollectionViewCell.swift */,
 				C88498CF283F8B110080016C /* AdjustCollectionViewCell.xib */,
 				C88498DE2840AC350080016C /* RulerView.swift */,
+				C8FA992828476C6E00F9AA19 /* CircularProgressView.swift */,
 			);
 			path = VideoDisplay;
 			sourceTree = "<group>";
@@ -462,8 +462,8 @@
 				C88498D0283F8B110080016C /* AdjustCollectionViewCell.swift in Sources */,
 				C8D5898F283B234300B0AE6C /* AppDelegate.swift in Sources */,
 				C88498DF2840AC350080016C /* RulerView.swift in Sources */,
-				C88498CD283F81150080016C /* UIViewExtension.swift in Sources */,
 				C8D58991283B234300B0AE6C /* SceneDelegate.swift in Sources */,
+				C8FA992928476C6E00F9AA19 /* CircularProgressView.swift in Sources */,
 				C8D58A0C283B2B1000B0AE6C /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
