@@ -9,17 +9,12 @@ import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var itemContentView: UIView!
     let shape = CAShapeLayer()
-    var itemImage: [UIImage?] = [UIImage(named: "adj1"), UIImage(named: "adj2"), UIImage(named: "adj3"), UIImage(named: "adj4"), UIImage(named: "adj5"), UIImage(named: "adj6"), UIImage(named: "adj7")]
+    var itemImage: [UIImage?]!
     
     func createCircularProgressBar()
     {
-        let circlePath = UIBezierPath(arcCenter: self.center, radius: self.bounds.height/3, startAngle: .pi * 3/2, endAngle: .pi * -1/2, clockwise: false)
-        shape.path = circlePath.cgPath
-        shape.lineWidth = 2
-        shape.strokeColor = UIColor.red.cgColor
-        shape.fillColor = UIColor.clear.cgColor
-        shape.strokeEnd = 1
-        self.layer.addSublayer(shape)
+        let circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
+        self.addSubview(circularProgressView)
     }
     
     override func awakeFromNib() {
