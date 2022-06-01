@@ -15,23 +15,8 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="q7z-EF-4zd">
-                        <rect key="frame" x="15" y="15" width="20" height="20"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </view>
-                </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <constraints>
-                <constraint firstAttribute="trailing" secondItem="q7z-EF-4zd" secondAttribute="trailing" constant="15" id="Dod-fg-93S"/>
-                <constraint firstItem="q7z-EF-4zd" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="HvQ-Hy-TbR"/>
-                <constraint firstItem="q7z-EF-4zd" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="15" id="KLM-tE-akR"/>
-                <constraint firstAttribute="bottom" secondItem="q7z-EF-4zd" secondAttribute="bottom" constant="15" id="qOM-Fk-1A6"/>
-            </constraints>
-            <connections>
-                <outlet property="itemContentView" destination="q7z-EF-4zd" id="k1e-sc-gA6"/>
-            </connections>
             <point key="canvasLocation" x="137.68115942028987" y="60.9375"/>
         </collectionViewCell>
     </objects>

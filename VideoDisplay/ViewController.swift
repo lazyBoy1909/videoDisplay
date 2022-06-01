@@ -20,6 +20,7 @@ class ViewController: UIViewController {
     private var player: AVPlayer!
     var rulerView: RulerView = RulerView()
     var scrollView: UIScrollView = UIScrollView()
+    var itemValue: [Double] = [100, 100, 100, 100, 100, 100, 100]
     func addGradientForScreen()
     {
         let bottomGradientLayer = CAGradientLayer()
@@ -89,6 +90,8 @@ class ViewController: UIViewController {
             self.player.play()
        }
     }
+    
+    
     // MARK: create footer tab bar
     func createFooterView()
     {
@@ -118,8 +121,8 @@ class ViewController: UIViewController {
         {
             self.adjustView = adjustView
             self.view.addSubview(adjustView)
-            //adjustView.backgroundColor = .clear
             adjustView.delegate = self
+            adjustView.itemValue = self.itemValue
             adjustView.translatesAutoresizingMaskIntoConstraints = false
             adjustView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200).isActive = true
             footerTabBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
@@ -141,8 +144,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initBasicGUI()
         getRandomVideoFromLibrary()
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
+    //play video again
+    @objc func willEnterForeground()
+    {
+        if let continuePlayer = self.player
+        {
+            DispatchQueue.main.async {
+                continuePlayer.seek(to: CMTime.zero)
+                continuePlayer.play()
+           }
+        }
+    }
 
     // MARK: save button tapped
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -177,6 +192,10 @@ extension ViewController: FooterTabBarDelegate
 // MARK: AdjustViewDelegate
 extension ViewController: AdjustViewDelegate
 {
+    func adjustViewScrollViewDidScroll(didScrollAtItemIndex index: Int, newValueAfterScroll newValue: Double) {
+        self.itemValue[index] = newValue
+    }
+    
     func adjustViewOkButtonDidTap(_ sender: UIButton) {
         adjustView.animHide()
         footerTabBar.animShow()

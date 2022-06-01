@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 class RulerView: UIView {
 
-   public var contentOffset = CGFloat(0) {
+   public var contentOffset = CGFloat(1) {
       didSet {
          self.setNeedsDisplay()
       }

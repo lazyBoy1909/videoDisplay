@@ -4,6 +4,11 @@
 <dict>
 	<key>Privacy - </key>
 	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Montserrat-Bold.otf</string>
+		<string></string>
+	</array>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Our application needs permission to write video</string>
 	<key>NSPhotoLibraryUsageDescription</key>

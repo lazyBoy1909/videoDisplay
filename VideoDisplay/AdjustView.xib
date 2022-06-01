@@ -4,6 +4,7 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -48,12 +49,23 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="scrollIndicatorInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                 </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0bw-xa-Njx">
+                    <rect key="frame" x="173" y="101" width="2" height="28"/>
+                    <color key="backgroundColor" systemColor="systemRedColor"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="2" id="8iU-Fg-MxK"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="CLJ-Fp-3mI"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="y9q-QB-CB1" firstAttribute="top" secondItem="A75-lr-xSE" secondAttribute="bottom" id="0aS-R6-HvK"/>
                 <constraint firstItem="2go-KM-3F3" firstAttribute="bottom" secondItem="CLJ-Fp-3mI" secondAttribute="bottom" id="43k-dZ-95s"/>
+                <constraint firstItem="0bw-xa-Njx" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="101" id="63X-yF-okY"/>
                 <constraint firstItem="2go-KM-3F3" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="30" id="MkT-LS-LKp"/>
                 <constraint firstAttribute="trailing" secondItem="A75-lr-xSE" secondAttribute="trailing" constant="333" id="OE8-tQ-yid"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="bottom" secondItem="A75-lr-xSE" secondAttribute="bottom" constant="98" id="OcS-Mn-0ej"/>
@@ -61,8 +73,10 @@
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="bottom" secondItem="3Qq-HD-Lwa" secondAttribute="bottom" constant="98" id="XXW-AR-j3h"/>
                 <constraint firstItem="A75-lr-xSE" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="12" id="Zwb-Za-diF"/>
                 <constraint firstItem="2go-KM-3F3" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-30" id="hoq-lB-TOy"/>
+                <constraint firstAttribute="bottom" secondItem="0bw-xa-Njx" secondAttribute="bottom" constant="10" id="iYd-dw-403"/>
                 <constraint firstItem="y9q-QB-CB1" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="40" id="jdQ-35-YoU"/>
                 <constraint firstItem="A75-lr-xSE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qQd-yK-fHX"/>
+                <constraint firstItem="CLJ-Fp-3mI" firstAttribute="trailing" secondItem="0bw-xa-Njx" secondAttribute="trailing" constant="200" id="qez-40-pQq"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="trailing" secondItem="y9q-QB-CB1" secondAttribute="trailing" id="tM2-b3-wTY"/>
                 <constraint firstItem="3Qq-HD-Lwa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="333" id="tbv-x5-V3D"/>
                 <constraint firstItem="2go-KM-3F3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-38" id="ypj-pO-STp"/>
@@ -78,9 +92,20 @@
             </connections>
             <point key="canvasLocation" x="84.782608695652186" y="33.816964285714285"/>
         </view>
+        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hJI-WG-fha">
+            <rect key="frame" x="0.0" y="0.0" width="42" height="21"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="0.0"/>
+            <nil key="textColor"/>
+            <nil key="highlightedColor"/>
+            <point key="canvasLocation" x="237" y="-48"/>
+        </label>
     </objects>
     <resources>
         <image name="done" width="36" height="36"/>
         <image name="x-icon" width="36" height="36"/>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
     </resources>
 </document>
