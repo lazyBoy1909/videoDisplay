@@ -59,6 +59,10 @@
 		C8D58A14283B2F0600B0AE6C /* FooterTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D58A13283B2F0600B0AE6C /* FooterTabBar.swift */; };
 		C8D58A17283B428B00B0AE6C /* TabBarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D58A15283B428A00B0AE6C /* TabBarCollectionViewCell.swift */; };
 		C8D58A18283B428B00B0AE6C /* TabBarCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8D58A16283B428A00B0AE6C /* TabBarCollectionViewCell.xib */; };
+		C8FA992428470E8200F9AA19 /* UIViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FA992028470E8200F9AA19 /* UIViewExtension.swift */; };
+		C8FA992528470E8200F9AA19 /* AdjustView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C8FA992128470E8200F9AA19 /* AdjustView.xib */; };
+		C8FA992628470E8200F9AA19 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FA992228470E8200F9AA19 /* ViewController.swift */; };
+		C8FA992728470E8200F9AA19 /* AdjustView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8FA992328470E8200F9AA19 /* AdjustView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -135,6 +139,10 @@
 		C8D58A13283B2F0600B0AE6C /* FooterTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterTabBar.swift; sourceTree = "<group>"; };
 		C8D58A15283B428A00B0AE6C /* TabBarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarCollectionViewCell.swift; sourceTree = "<group>"; };
 		C8D58A16283B428A00B0AE6C /* TabBarCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarCollectionViewCell.xib; sourceTree = "<group>"; };
+		C8FA992028470E8200F9AA19 /* UIViewExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtension.swift; sourceTree = "<group>"; };
+		C8FA992128470E8200F9AA19 /* AdjustView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AdjustView.xib; sourceTree = "<group>"; };
+		C8FA992228470E8200F9AA19 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C8FA992328470E8200F9AA19 /* AdjustView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdjustView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -193,6 +201,10 @@
 				C8D58997283B234500B0AE6C /* Assets.xcassets */,
 				C8D58999283B234500B0AE6C /* LaunchScreen.storyboard */,
 				C8D5899C283B234500B0AE6C /* Info.plist */,
+				C8FA992328470E8200F9AA19 /* AdjustView.swift */,
+				C8FA992128470E8200F9AA19 /* AdjustView.xib */,
+				C8FA992028470E8200F9AA19 /* UIViewExtension.swift */,
+				C8FA992228470E8200F9AA19 /* ViewController.swift */,
 				C8D58A0B283B2B1000B0AE6C /* UIImageExtension.swift */,
 				C8D58A11283B2EE900B0AE6C /* FooterTabBar.xib */,
 				C8D58A13283B2F0600B0AE6C /* FooterTabBar.swift */,
@@ -376,6 +388,7 @@
 				C8D58A18283B428B00B0AE6C /* TabBarCollectionViewCell.xib in Resources */,
 				C8D589EA283B27D800B0AE6C /* MontserratAlternates-Black.otf in Resources */,
 				C8D58A02283B27D800B0AE6C /* Montserrat-ExtraLightItalic.otf in Resources */,
+				C8FA992528470E8200F9AA19 /* AdjustView.xib in Resources */,
 				C8D589E7283B27D800B0AE6C /* Montserrat-Bold.otf in Resources */,
 				C8D589F3283B27D800B0AE6C /* MontserratAlternates-BlackItalic.otf in Resources */,
 				C8D58A0A283B27D800B0AE6C /* Montserrat-SemiBold.otf in Resources */,
@@ -437,10 +450,13 @@
 				C862521D283E27CE00631E71 /* PHAssetExtension.swift in Sources */,
 				C8D58A14283B2F0600B0AE6C /* FooterTabBar.swift in Sources */,
 				C8D58993283B234300B0AE6C /* ViewController.swift in Sources */,
+				C8FA992628470E8200F9AA19 /* ViewController.swift in Sources */,
 				C8D58A17283B428B00B0AE6C /* TabBarCollectionViewCell.swift in Sources */,
 				C8D5898F283B234300B0AE6C /* AppDelegate.swift in Sources */,
 				C8D58991283B234300B0AE6C /* SceneDelegate.swift in Sources */,
+				C8FA992428470E8200F9AA19 /* UIViewExtension.swift in Sources */,
 				C8D58A0C283B2B1000B0AE6C /* UIImageExtension.swift in Sources */,
+				C8FA992728470E8200F9AA19 /* AdjustView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
