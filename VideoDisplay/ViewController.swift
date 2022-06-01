@@ -158,6 +158,23 @@ class ViewController: UIViewController {
     }
     
     
+    func adjustViewAppear()
+    {
+        footerTabBar.animHide()
+        if let adjustView = Bundle.main.loadNibNamed("AdjustView", owner: self, options: nil)?.first as? AdjustView
+        {
+            self.adjustView = adjustView
+            self.view.addSubview(adjustView)
+            //adjustView.backgroundColor = .clear
+            adjustView.delegate = self
+            adjustView.translatesAutoresizingMaskIntoConstraints = false
+            adjustView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200).isActive = true
+            footerTabBar.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+            footerTabBar.leadingAnchor.constraint(equalTo: self.view.leadingAnchor).isActive = true
+            footerTabBar.trailingAnchor.constraint(equalTo: self.view.trailingAnchor).isActive = true
+            adjustView.animShow()
+        }
+    }
     func initBasicGUI()
     {
         saveButton.backgroundColor = UIColor(red: 1, green: 1, blue: 1, alpha: 0.29)
