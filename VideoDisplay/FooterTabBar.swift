@@ -34,11 +34,10 @@ class FooterTabBar: UIView {
     }
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         initCollectionView()
     }
     
-    override func layoutSubviews() {
-    }
 }
 extension FooterTabBar: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
 {

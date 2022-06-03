@@ -29,17 +29,8 @@ class AdjustView: UIView {
     }
     
     override func awakeFromNib() {
+        super.awakeFromNib()
         initCollectionView()
-    }
-    
-    override init(frame: CGRect)
-    {
-        super.init(frame: frame)
-        
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
     }
     
     override func layoutSubviews() {
