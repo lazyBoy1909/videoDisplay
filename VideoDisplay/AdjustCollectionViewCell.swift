@@ -21,12 +21,13 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         createCircularProgressBar()
         self.addSubview(countLabel)
     }
-    func initAdjustCell(itemImageForCell imageCell: UIImage?)
+    func initAdjustCell(itemImageForCell imageCell: UIImage?, cellStrokenEndValue cellValue: Double)
     {
         if let image = imageCell
         {
             self.itemImageView.image = image
         }
+        self.circularProgressView.shape.strokeEnd = cellValue/100
     }
     
     func adjustCircularProgressBarItem(currentValue offset: Double)
@@ -55,12 +56,12 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         }
         else if(offset >= 100 && offset < 1000)
         {
-            countLabel.frame = CGRect(x: 16, y: 14, width: self.bounds.width/2, height: self.bounds.height/2)
+            countLabel.frame = CGRect(x: 16, y: 11, width: self.bounds.width/2, height: self.bounds.height/2)
             countLabel.font = UIFont(name: "Montserrat-Bold", size: 14)
         }
         else
         {
-            countLabel.frame = CGRect(x: 11, y: 11, width: self.bounds.width/2+3, height: self.bounds.height/2+3)
+            countLabel.frame = CGRect(x: 11, y: 10, width: self.bounds.width/2+3, height: self.bounds.height/2+3)
             countLabel.font = UIFont(name: "Montserrat-Bold", size: 13)
         }
         let ratioValue: Int

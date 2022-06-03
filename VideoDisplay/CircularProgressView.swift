@@ -36,7 +36,6 @@ class CircularProgressView: UIView
             shape.lineWidth = 2
             shape.strokeColor = UIColor.red.cgColor
             shape.fillColor = UIColor.clear.cgColor
-            shape.strokeEnd = 1
         }
     }
     

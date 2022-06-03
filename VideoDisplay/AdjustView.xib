@@ -48,18 +48,31 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="scrollIndicatorInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
                 </scrollView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qwj-LZ-9dJ">
+                    <rect key="frame" x="204" y="101" width="2" height="28"/>
+                    <color key="backgroundColor" red="1" green="0.2470588235" blue="0.3803921569" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="2" id="OtP-vb-TJA"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="CLJ-Fp-3mI"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="y9q-QB-CB1" firstAttribute="top" secondItem="A75-lr-xSE" secondAttribute="bottom" id="0aS-R6-HvK"/>
                 <constraint firstItem="2go-KM-3F3" firstAttribute="bottom" secondItem="CLJ-Fp-3mI" secondAttribute="bottom" id="43k-dZ-95s"/>
+                <constraint firstAttribute="bottom" secondItem="Qwj-LZ-9dJ" secondAttribute="bottom" constant="10" id="7Ps-or-ZtP"/>
+                <constraint firstItem="Qwj-LZ-9dJ" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="101" id="HqX-w2-ihX"/>
                 <constraint firstItem="2go-KM-3F3" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="30" id="MkT-LS-LKp"/>
                 <constraint firstAttribute="trailing" secondItem="A75-lr-xSE" secondAttribute="trailing" constant="333" id="OE8-tQ-yid"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="bottom" secondItem="A75-lr-xSE" secondAttribute="bottom" constant="98" id="OcS-Mn-0ej"/>
                 <constraint firstItem="3Qq-HD-Lwa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UsC-Jd-3eM"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="bottom" secondItem="3Qq-HD-Lwa" secondAttribute="bottom" constant="98" id="XXW-AR-j3h"/>
                 <constraint firstItem="A75-lr-xSE" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="12" id="Zwb-Za-diF"/>
+                <constraint firstItem="Qwj-LZ-9dJ" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="204" id="fSV-3l-vJe"/>
                 <constraint firstItem="2go-KM-3F3" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-30" id="hoq-lB-TOy"/>
                 <constraint firstItem="y9q-QB-CB1" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="40" id="jdQ-35-YoU"/>
                 <constraint firstItem="A75-lr-xSE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qQd-yK-fHX"/>
@@ -70,10 +83,10 @@
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="exitButton" destination="A75-lr-xSE" id="dWi-hv-II6"/>
-                <outlet property="itemCollectionView" destination="y9q-QB-CB1" id="WQg-7t-V7V"/>
-                <outlet property="okButton" destination="3Qq-HD-Lwa" id="04J-Wm-Sb9"/>
-                <outlet property="rulerScrollView" destination="2go-KM-3F3" id="s93-HC-g6R"/>
+                <outlet property="exitButton" destination="A75-lr-xSE" id="Yhb-1b-j0d"/>
+                <outlet property="itemCollectionView" destination="y9q-QB-CB1" id="HDx-da-zmX"/>
+                <outlet property="okButton" destination="3Qq-HD-Lwa" id="BmQ-Lz-5q9"/>
+                <outlet property="rulerScrollView" destination="2go-KM-3F3" id="u5I-ao-az3"/>
             </connections>
             <point key="canvasLocation" x="84.782608695652186" y="33.816964285714285"/>
         </view>
