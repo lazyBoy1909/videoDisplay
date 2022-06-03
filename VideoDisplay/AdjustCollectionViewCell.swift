@@ -8,11 +8,11 @@
 import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var itemImageView: UIImageView!
-    let shape = CAShapeLayer()
+    var circularProgressView: CircularProgressView!
     
     func createCircularProgressBar()
     {
-        let circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height), shapeLayer: shape)
+        self.circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
         self.addSubview(circularProgressView)
     }
     
@@ -30,7 +30,10 @@ class AdjustCollectionViewCell: UICollectionViewCell {
     
     func adjustCircularProgressBarItem(currentValue offset: Double)
     {
-        shape.strokeEnd = offset/1000
+        if self.circularProgressView != nil
+        {
+            circularProgressView.updateStrokeEndValue(strokeEndValue: offset/1000)
+        }
     }
     
     func changeToNumberDisplayState(currentValue offset: Double)
