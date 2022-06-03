@@ -20,9 +20,9 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         createCircularProgressBar()
     }
-    func initAdjustCell(indexPath: IndexPath, itemImage: [UIImage?])
+    func initAdjustCell(itemImageForCell imageCell: UIImage?)
     {
-        if let image = itemImage[indexPath.row]
+        if let image = imageCell
         {
             let imageView = UIImageView(image: image)
             imageView.frame = CGRect(x: 14, y: 14, width: self.bounds.width/2-5, height: self.bounds.height/2-5)
