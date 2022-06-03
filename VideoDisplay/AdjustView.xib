@@ -30,8 +30,8 @@
                         <action selector="okButtonTapped:" destination="iN0-l3-epB" eventType="touchUpInside" id="O3T-0R-gs1"/>
                     </connections>
                 </button>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="y9q-QB-CB1">
-                    <rect key="frame" x="0.0" y="41" width="375" height="60"/>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" alwaysBounceHorizontal="YES" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="y9q-QB-CB1">
+                    <rect key="frame" x="40" y="41" width="335" height="60"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="60" id="lQv-Y4-qtv"/>
@@ -43,27 +43,37 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2go-KM-3F3">
+                    <rect key="frame" x="30" y="101" width="315" height="38"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="scrollIndicatorInsets" minX="30" minY="0.0" maxX="30" maxY="0.0"/>
+                </scrollView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="CLJ-Fp-3mI"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="y9q-QB-CB1" firstAttribute="top" secondItem="A75-lr-xSE" secondAttribute="bottom" id="0aS-R6-HvK"/>
+                <constraint firstItem="2go-KM-3F3" firstAttribute="bottom" secondItem="CLJ-Fp-3mI" secondAttribute="bottom" id="43k-dZ-95s"/>
+                <constraint firstItem="2go-KM-3F3" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="30" id="MkT-LS-LKp"/>
                 <constraint firstAttribute="trailing" secondItem="A75-lr-xSE" secondAttribute="trailing" constant="333" id="OE8-tQ-yid"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="bottom" secondItem="A75-lr-xSE" secondAttribute="bottom" constant="98" id="OcS-Mn-0ej"/>
                 <constraint firstItem="3Qq-HD-Lwa" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="UsC-Jd-3eM"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="bottom" secondItem="3Qq-HD-Lwa" secondAttribute="bottom" constant="98" id="XXW-AR-j3h"/>
                 <constraint firstItem="A75-lr-xSE" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="12" id="Zwb-Za-diF"/>
-                <constraint firstItem="y9q-QB-CB1" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" id="jdQ-35-YoU"/>
+                <constraint firstItem="2go-KM-3F3" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" constant="-30" id="hoq-lB-TOy"/>
+                <constraint firstItem="y9q-QB-CB1" firstAttribute="leading" secondItem="CLJ-Fp-3mI" secondAttribute="leading" constant="40" id="jdQ-35-YoU"/>
                 <constraint firstItem="A75-lr-xSE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="qQd-yK-fHX"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="trailing" secondItem="y9q-QB-CB1" secondAttribute="trailing" id="tM2-b3-wTY"/>
                 <constraint firstItem="3Qq-HD-Lwa" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="333" id="tbv-x5-V3D"/>
+                <constraint firstItem="2go-KM-3F3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="bottom" constant="-38" id="ypj-pO-STp"/>
                 <constraint firstItem="CLJ-Fp-3mI" firstAttribute="trailing" secondItem="3Qq-HD-Lwa" secondAttribute="trailing" constant="12" id="zlO-8s-4w8"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="exitButton" destination="A75-lr-xSE" id="nJG-oy-pP7"/>
-                <outlet property="itemCollectionView" destination="y9q-QB-CB1" id="2Bf-Ez-Oot"/>
-                <outlet property="okButton" destination="3Qq-HD-Lwa" id="Obb-hM-vJD"/>
+                <outlet property="exitButton" destination="A75-lr-xSE" id="dWi-hv-II6"/>
+                <outlet property="itemCollectionView" destination="y9q-QB-CB1" id="WQg-7t-V7V"/>
+                <outlet property="okButton" destination="3Qq-HD-Lwa" id="04J-Wm-Sb9"/>
+                <outlet property="rulerScrollView" destination="2go-KM-3F3" id="s93-HC-g6R"/>
             </connections>
             <point key="canvasLocation" x="84.782608695652186" y="33.816964285714285"/>
         </view>

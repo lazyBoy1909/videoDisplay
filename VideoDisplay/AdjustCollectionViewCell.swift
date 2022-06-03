@@ -9,7 +9,7 @@ import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var itemImageView: UIImageView!
     var circularProgressView: CircularProgressView!
-    
+    var countLabel: UILabel = UILabel()
     func createCircularProgressBar()
     {
         self.circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
@@ -19,6 +19,7 @@ class AdjustCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         createCircularProgressBar()
+        self.addSubview(countLabel)
     }
     func initAdjustCell(itemImageForCell imageCell: UIImage?)
     {
@@ -36,30 +37,47 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         }
     }
     
+    func changeToImageDisplayState()
+    {
+        itemImageView.isHidden = false
+        countLabel.isHidden = true
+        
+    }
     func changeToNumberDisplayState(currentValue offset: Double)
     {
-        self.subviews.forEach
-        {
-            $0.isHidden = true
-        }
-        let valueLabel = UILabel()
+        countLabel.isHidden = false
+        itemImageView.isHidden = true
+        //add value label to cell
         if(offset < 100)
         {
-            valueLabel.frame = CGRect(x: 20, y: 14, width: self.bounds.width/2-8, height: self.bounds.height/2-8)
-            valueLabel.font = .systemFont(ofSize: 15)
+            countLabel.frame = CGRect(x: 20, y: 14, width: self.bounds.width/2-8, height: self.bounds.height/2-8)
+            countLabel.font = UIFont(name: "Montserrat-Bold", size: 15)
         }
         else if(offset >= 100 && offset < 1000)
         {
-            valueLabel.frame = CGRect(x: 16, y: 14, width: self.bounds.width/2-8, height: self.bounds.height/2-8)
-            valueLabel.font = .systemFont(ofSize: 15)
+            countLabel.frame = CGRect(x: 16, y: 14, width: self.bounds.width/2, height: self.bounds.height/2)
+            countLabel.font = UIFont(name: "Montserrat-Bold", size: 14)
         }
         else
         {
-            valueLabel.frame = CGRect(x: 13, y: 11, width: self.bounds.width/2-2, height: self.bounds.height/2-2)
-            valueLabel.font = .systemFont(ofSize: 13)
+            countLabel.frame = CGRect(x: 11, y: 11, width: self.bounds.width/2+3, height: self.bounds.height/2+3)
+            countLabel.font = UIFont(name: "Montserrat-Bold", size: 13)
         }
-        valueLabel.text = "\((Int)(offset/10))"
-        valueLabel.textColor = .white
-        self.addSubview(valueLabel)
+        let ratioValue: Int
+        if(offset > 1000)
+        {
+            ratioValue = 100
+        }
+        else if(offset < 0)
+        {
+            ratioValue  = 0
+        }
+        else
+        {
+            ratioValue = (Int)(offset/10)
+        }
+        countLabel.text = "\(ratioValue)"
+        countLabel.textColor = .white
+        
     }
 }
