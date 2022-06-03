@@ -18,7 +18,7 @@ class AdjustView: UIView {
     @IBOutlet private weak var exitButton: UIButton!
     @IBOutlet private weak var okButton: UIButton!
     @IBOutlet private weak var itemCollectionView: UICollectionView!
-    var currentItem: Int = 0
+    var currentItemIndex: Int = 0
     var currentValue: Double = 0
     var itemImage: [UIImage?]!
     weak var delegate: AdjustViewDelegate?
@@ -66,7 +66,7 @@ class AdjustView: UIView {
 extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICollectionViewDelegateFlowLayout
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
+        return itemImage.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -80,14 +80,14 @@ extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICol
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-         currentItem = indexPath.row
-         if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: currentItem, section: 0)) as? AdjustCollectionViewCell
+         currentItemIndex = indexPath.row
+         if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: currentItemIndex, section: 0)) as? AdjustCollectionViewCell
          {
              cell.changeToNumberDisplayState(currentValue: currentValue)
          }
-        for index in 0...6
+        for index in 0...itemImage.count-1
         {
-            if(index != currentItem)
+            if(index != currentItemIndex)
             {
                 if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? AdjustCollectionViewCell
                 {
@@ -104,7 +104,7 @@ extension AdjustView: UIScrollViewDelegate
          let offset = scrollView.contentOffset.x
          currentValue = offset
          print(offset)
-         if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: currentItem, section: 0)) as? AdjustCollectionViewCell
+         if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: currentItemIndex, section: 0)) as? AdjustCollectionViewCell
          {
              cell.adjustCircularProgressBarItem(currentValue: offset)
          }
