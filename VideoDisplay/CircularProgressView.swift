@@ -11,10 +11,12 @@ class CircularProgressView: UIView
 {
     var shape = CAShapeLayer()
     
-    override init(frame: CGRect)
+    init(frame: CGRect, shapeLayer: CAShapeLayer)
     {
         super.init(frame: frame)
         self.backgroundColor = .clear
+        self.shape = shapeLayer
+        self.layer.addSublayer(shape)
     }
     
     required init?(coder: NSCoder) {
@@ -35,7 +37,6 @@ class CircularProgressView: UIView
             shape.strokeColor = UIColor.red.cgColor
             shape.fillColor = UIColor.clear.cgColor
             shape.strokeEnd = 1
-            self.layer.addSublayer(shape)
         }
     }
 }
