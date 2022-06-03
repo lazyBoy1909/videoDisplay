@@ -14,6 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet private weak var headerView: UIView!
     @IBOutlet private weak var backButton: UIButton!
     @IBOutlet private weak var videoImageView: UIView!
+    var itemValue: [Double] = [100, 100, 100, 100, 100, 100, 100]
     private weak var footerTabBar: FooterTabBar?
     private weak var adjustView: AdjustView?
     private var video: PHAsset!
@@ -119,6 +120,7 @@ class ViewController: UIViewController {
             adjustView.itemImage = self.itemImage
             self.view.addSubview(adjustView)
             adjustView.delegate = self
+            adjustView.itemValue = self.itemValue
             adjustView.translatesAutoresizingMaskIntoConstraints = false
             adjustView.topAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -200).isActive = true
             footerTabBar!.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
@@ -151,8 +153,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         initBasicGUI()
         getRandomVideoFromLibrary()
+        NotificationCenter.default.addObserver(self, selector: #selector(willEnterForeground), name: UIApplication.willEnterForegroundNotification, object: nil)
     }
     
+    //play video again
+    @objc func willEnterForeground()
+    {
+        if let continuePlayer = self.player
+        {
+            DispatchQueue.main.async {
+                continuePlayer.seek(to: CMTime.zero)
+                continuePlayer.play()
+           }
+        }
+    }
 
     // MARK: save button tapped
     @IBAction func saveButtonTapped(_ sender: UIButton) {
@@ -196,7 +210,9 @@ extension ViewController: AdjustViewDelegate
         animHide(viewMove: adjustView!)
         animShow(viewMove: footerTabBar!)
     }
-    
+    func adjustViewScrollViewDidScroll(didScrollAtItemIndex index: Int, newValueAfterScroll newValue: Double) {
+        self.itemValue[index] = newValue
+    }
     
 }
 
