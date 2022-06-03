@@ -161,10 +161,8 @@ class ViewController: UIViewController {
     {
         if let continuePlayer = self.player
         {
-            DispatchQueue.main.async {
-                continuePlayer.seek(to: CMTime.zero)
-                continuePlayer.play()
-           }
+            continuePlayer.seek(to: CMTime.zero)
+            continuePlayer.play()
         }
     }
 
