@@ -28,13 +28,22 @@ class AdjustView: UIView {
         itemCollectionView.register(UINib(nibName: "AdjustCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "AdjustCollectionViewCell")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
+    override init(frame: CGRect)
+    {
+        super.init(frame: frame)
         exitButton.layer.cornerRadius = exitButton.bounds.width/2
         exitButton.clipsToBounds = true
         okButton.layer.cornerRadius = okButton.bounds.width/2
         okButton.clipsToBounds = true
         initCollectionView()
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
     }
 
     @IBAction func exitButtonTapped(_ sender: UIButton) {
@@ -53,8 +62,7 @@ extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICol
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = itemCollectionView.dequeueReusableCell(withReuseIdentifier: "AdjustCollectionViewCell", for: indexPath) as! AdjustCollectionViewCell
-        cell.itemImage = self.itemImage
-        cell.initAdjustCell(indexPath: indexPath)
+        cell.initAdjustCell(indexPath: indexPath, itemImage: self.itemImage)
         return cell
     }
     

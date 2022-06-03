@@ -10,9 +10,19 @@ import UIKit
 class CircularProgressView: UIView
 {
     var shape = CAShapeLayer()
+    
+    override init(frame: CGRect)
+    {
+        super.init(frame: frame)
+        self.backgroundColor = .clear
+    }
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+    }
+    
     override open func layoutSubviews() {
       super.layoutSubviews()
-      self.backgroundColor = UIColor.clear
     }
     
     override func draw(_ rect: CGRect) {
