@@ -7,12 +7,12 @@
 
 import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
-    @IBOutlet private weak var itemContentView: UIView!
+    @IBOutlet private weak var itemImageView: UIImageView!
     let shape = CAShapeLayer()
     
     func createCircularProgressBar()
     {
-        let circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height))
+        let circularProgressView = CircularProgressView(frame: CGRect(x: 0, y: 0, width: self.bounds.width, height: self.bounds.height), shapeLayer: shape)
         self.addSubview(circularProgressView)
     }
     
@@ -24,9 +24,7 @@ class AdjustCollectionViewCell: UICollectionViewCell {
     {
         if let image = imageCell
         {
-            let imageView = UIImageView(image: image)
-            imageView.frame = CGRect(x: 14, y: 14, width: self.bounds.width/2-5, height: self.bounds.height/2-5)
-            self.addSubview(imageView)
+            self.itemImageView.image = image
         }
     }
     
