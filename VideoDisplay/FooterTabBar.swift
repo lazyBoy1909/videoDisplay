@@ -19,16 +19,25 @@ class FooterTabBar: UIView {
                     
     @IBOutlet weak var tabBarCollectionView: UICollectionView!
 
+    func initCollectionView()
+    {
+        tabBarCollectionView.register(UINib(nibName: "TabBarCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "TabBarCollectionViewCell")
+        tabBarCollectionView.delegate = self
+        tabBarCollectionView.dataSource = self
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
     }
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
+    
+    override func awakeFromNib() {
+        initCollectionView()
+    }
+    
     override func layoutSubviews() {
-        tabBarCollectionView.register(UINib(nibName: "TabBarCollectionViewCell", bundle: Bundle.main), forCellWithReuseIdentifier: "TabBarCollectionViewCell")
-        tabBarCollectionView.delegate = self
-        tabBarCollectionView.dataSource = self
     }
 }
 extension FooterTabBar: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout
