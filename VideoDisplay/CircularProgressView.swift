@@ -19,6 +19,7 @@ class CircularProgressView: UIView
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.backgroundColor = .clear
     }
     
     override open func layoutSubviews() {
