@@ -9,7 +9,6 @@ import UIKit
 class AdjustCollectionViewCell: UICollectionViewCell {
     @IBOutlet private weak var itemContentView: UIView!
     let shape = CAShapeLayer()
-    var itemImage: [UIImage?]!
     
     func createCircularProgressBar()
     {
@@ -21,7 +20,7 @@ class AdjustCollectionViewCell: UICollectionViewCell {
         super.awakeFromNib()
         createCircularProgressBar()
     }
-    func initAdjustCell(indexPath: IndexPath)
+    func initAdjustCell(indexPath: IndexPath, itemImage: [UIImage?])
     {
         if let image = itemImage[indexPath.row]
         {
