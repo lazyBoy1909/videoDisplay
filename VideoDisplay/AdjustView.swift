@@ -85,6 +85,16 @@ extension AdjustView: UICollectionViewDelegate, UICollectionViewDataSource,UICol
          {
              cell.changeToNumberDisplayState(currentValue: currentValue)
          }
+        for index in 0...6
+        {
+            if(index != currentItem)
+            {
+                if let cell = self.itemCollectionView.cellForItem(at: IndexPath(row: index, section: 0)) as? AdjustCollectionViewCell
+                {
+                    cell.changeToImageDisplayState()
+                }
+            }
+        }
      }
 }
 
